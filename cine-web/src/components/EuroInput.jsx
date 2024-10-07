@@ -22,21 +22,14 @@ const EuroInput = () => {
         // Imposta il valore formattato nello stato
         setAmount(formattedValue);
     };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert(`Importo inserito: €${amount}`);
-    };
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <label>
                 Inserisci importo in euro:
                 <input
                     type="text"
                     value={amount}
                     onChange={handleChange}
-                    placeholder="20,30"
                 />
             </label>
             <button type="submit">Invia</button>
