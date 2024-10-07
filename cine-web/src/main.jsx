@@ -13,7 +13,7 @@ import * as React from "react";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <NavBarCine/>,
+        element: <App/>,
     },
     {
         path: "/about",
