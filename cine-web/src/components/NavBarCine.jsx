@@ -13,9 +13,6 @@ function NavBarCine() {
             <Nav.Item>
                 <Link className="custom-link" to={"/"}>Home</Link>
             </Nav.Item>
-            <Nav.Item>
-                <Link className="custom-link" to={"/serietv"}>Serie TV</Link>
-            </Nav.Item>
 
 
             <Nav.Item>

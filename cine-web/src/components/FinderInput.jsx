@@ -1,5 +1,4 @@
 import React from "react";
-import {serieData} from "../data.js";
 
 function FinderInput(props){
     const handleSearchChange = (event) => {

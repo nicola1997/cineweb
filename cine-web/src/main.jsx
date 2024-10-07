@@ -6,7 +6,6 @@ import './index.css'
 import {Provider} from "react-redux";
 import store from "./store/store.js";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import CardSerieTv from "./components/CardSerieTv.jsx";
 import HomeView from './components/HomeView.jsx'
 import User from "./components/User.jsx";
 
@@ -18,10 +17,6 @@ const router = createBrowserRouter([
     {
         path: "/homeview",
         element: <HomeView/>,
-    },
-    {
-        path: "/serietv",
-        element: <CardSerieTv/>,
     },
     {
         path: "/user",

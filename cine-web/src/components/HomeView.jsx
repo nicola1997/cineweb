@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import CardFilm from "./CardFilm.jsx";
 import * as React from "react";
-import {filmData, serieData} from '../data.js';
+import {filmData} from '../data.js';
 function HomeView() {
     return (
         <>
