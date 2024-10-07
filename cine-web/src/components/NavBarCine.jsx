@@ -1,36 +1,37 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import cineweblogo from '../assets/cineweblogo.webp'
 import {Link} from "react-router-dom";
+import '../NavBarCine.css'
 
 function NavBarCine() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
-            <Container>
-                <Navbar.Brand href="#home">
-                    <img src={cineweblogo} alt="CineWeb Logo" style={{width: '40px', height: '30'}}/>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+        <Nav justify variant="tabs" defaultActiveKey="/home">
+            <Nav.Item>
+                <Link className="custom-link" to={"/"}><img src={cineweblogo} alt="CineWeb Logo"
+                                                            style={{width: '70px', height: '59'}}/></Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className="custom-link" to={"/"}>Home</Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className="custom-link" to={"/serietv"}>Serie TV</Link>
+            </Nav.Item>
 
-                        <Nav><Link to={"/"}>Home</Link></Nav>
-                        <Nav><Link to={"/film"}>Film</Link></Nav>
-                        <Nav><Link to={"/serietv"}>Serie TV</Link></Nav>
-                        <Nav><Link to={"/about"}>About</Link></Nav>
 
-                        <Nav>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 className="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                            </svg>
-                        </Nav>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            <Nav.Item>
+                <Link className="custom-link user" to={"/user"}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" fill="currentColor"
+                         className="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fillRule="evenodd"
+                              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </Link>
+
+            </Nav.Item>
+
+
+        </Nav>
     );
 }
 

@@ -1,14 +1,14 @@
+import * as React from 'react'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {Provider} from "react-redux";
 import store from "./store/store.js";
-import EuroInput from "./components/EuroInput.jsx";
-import {createBrowserRouter, Link, RouterProvider} from "react-router-dom";
-import NavBarCine from "./components/NavBarCine.jsx";
-import About from "./components/About.jsx";
-import * as React from "react";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import CardSerieTv from "./components/CardSerieTv.jsx";
+import HomeView from './components/HomeView.jsx'
+import User from "./components/User.jsx";
 
 const router = createBrowserRouter([
     {
@@ -16,9 +16,19 @@ const router = createBrowserRouter([
         element: <App/>,
     },
     {
-        path: "/about",
-        element: <About/>,
-    }
+        path: "/homeview",
+        element: <HomeView/>,
+    },
+    {
+        path: "/serietv",
+        element: <CardSerieTv/>,
+    },
+    {
+        path: "/user",
+        element: <User/>,
+    },
+
+
 ]);
 
 createRoot(document.getElementById('root')).render(

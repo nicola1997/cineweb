@@ -1,0 +1,27 @@
+
+.custom-link {
+
+    color: #000000;
+    padding: 30px;
+    animation: an-li 2689ms;
+}
+
+.navbar-links {
+
+    display: flex;
+    flex-grow: 1;
+}
+
+.custom-link:hover {
+    color: #faae17;
+}
+
+@keyframes an-li {
+    from {
+        color: #e54500;
+    }
+    to {
+        text-align: center;
+        color: #000000;
+    }
+}
