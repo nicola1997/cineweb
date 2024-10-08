@@ -2,7 +2,7 @@ import Nav from 'react-bootstrap/Nav';
 import cineweblogo from '../assets/cineweblogo.webp';
 import { Link } from "react-router-dom";
 import '../NavBarCine.css';
-import './input.css'
+import '../input.css'
 function NavBarCine() {
     return (
         <Nav justify variant="tabs" defaultActiveKey="/home" className="fixed-navbar">
