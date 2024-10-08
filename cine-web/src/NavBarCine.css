@@ -1,27 +1,32 @@
-
-.custom-link {
-
-    color: #000000;
-    padding: 30px;
-    animation: an-li 2689ms;
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Imposta l'altezza fissa della navbar */
+    background-color: white; /* Colore di sfondo */
+    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
+    box-shadow: 0 4px 2px -2px gray; /* Ombra per separarla */
+    display: flex; /* Utilizza Flexbox per il layout */
+    align-items: center; /* Allinea gli elementi verticalmente */
+    padding: 0 20px; /* Padding laterale */
 }
 
-.navbar-links {
+body {
+    margin: 0; /* Rimuovi il margine di default */
+    padding-top: 80px; /* Spazio per la navbar */
+}
 
-    display: flex;
-    flex-grow: 1;
+.custom-link {
+    color: black; /* Colore dei link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    margin-right: 20px; /* Margine tra i link */
 }
 
 .custom-link:hover {
-    color: #faae17;
+    color: darkgray; /* Cambia colore al passaggio del mouse */
 }
 
-@keyframes an-li {
-    from {
-        color: #e54500;
-    }
-    to {
-        text-align: center;
-        color: #000000;
-    }
+.user {
+    margin-left: auto; /* Spinge l'icona utente a destra */
 }

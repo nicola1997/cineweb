@@ -1,0 +1,8 @@
+input {
+    position: fixed; /* Rende l'input fisso */
+    top: 80px; /* Posiziona l'input sotto la navbar */
+    left: 20px; /* Distanza dal lato sinistro */
+    right: 20px; /* Distanza dal lato destro */
+    height: 40px; /* Imposta un'altezza fissa */
+    z-index: 999; /* Assicura che l'input sia sopra ad altri elementi */
+}

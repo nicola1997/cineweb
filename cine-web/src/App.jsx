@@ -7,7 +7,7 @@ import CardFilm from "./components/CardFilm";
 import { Container, Col, Row } from "react-bootstrap";
 import { getMovie } from './services/Movie';
 import { setMovies } from './redux/MovieSlice';
-
+// p.s il compon funziona anche senza redux
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [localMovies, setLocalMovies] = useState([]); // Stato locale per memorizzare i film
