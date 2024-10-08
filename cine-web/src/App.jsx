@@ -1,45 +1,37 @@
-import * as React from 'react';
-import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux'; // Importa useDispatch e useSelector
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBarCine from "./components/NavBarCine.jsx";
-import CardFilm from "./components/CardFilm.jsx";
-import Container from "react-bootstrap/Container";
-import {Col, Row} from "react-bootstrap";
-import {getMovie} from './services/Movie.ts';
-import {setMovies} from './redux/MovieSlice.js'; // Importa l'azione setMovies
+import NavBarCine from "./components/NavBarCine";
+import CardFilm from "./components/CardFilm";
+import { Container, Col, Row } from "react-bootstrap";
+import { getMovie } from './services/Movie';
+import { setMovies } from './redux/MovieSlice';
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
-    const dispatch = useDispatch(); // Crea una funzione dispatch per inviare azioni
+    const [localMovies, setLocalMovies] = useState([]); // Stato locale per memorizzare i film
+    const dispatch = useDispatch();
+    const filmData = useSelector((state) => state.movies);
 
-    // Effetto per chiamare getMovie al montaggio del componente
     useEffect(() => {
         const fetchMovies = async () => {
             const movies = await getMovie();
-            dispatch(setMovies(movies)); // Salva i film nello stato Redux
+            dispatch(setMovies(movies));
+            setLocalMovies(movies); // Memorizza i film nello stato locale
         };
+        fetchMovies();
+    }, [dispatch]);
 
-        fetchMovies(); // Chiama la funzione per ottenere i film
-    }, [dispatch]); // Aggiungi dispatch come dipendenza
-    // Seleziona i film dallo stato Redux
-    const filmData = useSelector((state) => state.movies);
+    const handleSearchChange = (event) => setSearchTerm(event.target.value);
 
-    // Funzione per gestire il cambiamento dell'input di ricerca
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-    // Filtra i film in base al termine di ricerca
-    const filteredFilms = filmData && filmData.length > 0
-        ? filmData.filter(film => film.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        : []; // Se filmData è undefined o vuoto, restituisci un array vuoto
-
+    const filteredFilms = localMovies?.filter(film =>
+        film.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
 
     return (
         <>
-            <NavBarCine/>
+            <NavBarCine />
             <div>
                 <h1>I Film più Popolari</h1>
                 <input
@@ -47,15 +39,15 @@ function App() {
                     placeholder="Cerca un film..."
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    style={{marginBottom: '20px', padding: '10px', width: '100%'}}
+                    style={{ marginBottom: '20px', padding: '10px', width: '100%' }}
                 />
                 <Container>
                     <Row>
-                        {filteredFilms.map((film, index) =>
+                        {filteredFilms.map((film, index) => (
                             <Col key={index}>
-                                <CardFilm titolo={film.title} desc={film.descrizione} img={film.img}/>
+                                <CardFilm titolo={film.title} desc={film.descrizione} img={film.img} />
                             </Col>
-                        )}
+                        ))}
                     </Row>
                 </Container>
             </div>
