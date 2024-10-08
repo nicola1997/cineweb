@@ -12,7 +12,6 @@ function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [localMovies, setLocalMovies] = useState([]); // Stato locale per memorizzare i film
     const dispatch = useDispatch();
-    const filmData = useSelector((state) => state.movies);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -25,7 +24,7 @@ function App() {
 
     const handleSearchChange = (event) => setSearchTerm(event.target.value);
 
-    const filteredFilms = localMovies?.filter(film =>
+    const filteredFilms = localMovies.filter(film =>
         film.title.toLowerCase().includes(searchTerm.toLowerCase())
     ) || [];
 
