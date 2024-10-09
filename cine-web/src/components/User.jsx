@@ -5,7 +5,6 @@ function User(){
     return(
         <div>
             <NavBarCine>
-
             </NavBarCine>
         user
     </div>)
